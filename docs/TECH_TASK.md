@@ -26,7 +26,7 @@ Book Tracker — веб-приложение для учёта книг в ли�
 - **Backend:** Python 3.11 + FastAPI
 - **ORM:** SQLAlchemy
 - **БД:** SQLite
-- **Frontend:** Jinja2 + Bootstrap 5
+- **Frontend:** Jinja2 + Bootstrap 5 Bootstrap CSS/JS хранятся локально в `static/bootstrap`,подключение через `StaticFiles` FastAPI.
 - **Тесты:** pytest + httpx
 - **VCS:** Git + GitHub
 
@@ -85,17 +85,21 @@ Book Tracker — веб-приложение для учёта книг в ли�
 
 **Результат:** репозиторий с README, ТЗ, инструкция по запуску и минимальное FastAPI-приложением, которое поднимается на `localhost:8000`.
 
-### Спринт 2 — Модели и CRUD (3 задачи)
-- Реализовать модели Author, Genre, Book и подключение БД
-- Реализовать CRUD через API для Author и Book
-- Реализовать CRUD через HTML-форму для Genre
+**Спринт 2 — Модели и подключение БД (3 задачи)**
+- Модели Author, Genre, Book
+- Схемы Pydantic для валидации API
+- Подключение БД (database.py) и создание таблиц
 
-**Результат:** 3 модели в БД, работают CRUD-операции для Author и Book
-через API, форма создания и удаления Genre доступна в браузере.
+**Спринт 3 — CRUD-операции (3 задачи)**
+- CRUD через API для Author
+- CRUD через API для Book
+- CRUD через HTML-форму для Genre
 
-### Спринт 3 — UI, тесты, релиз (3 задачи)
-- Реализовать HTML-страницы /authors, /books, /genres
-- Написать pytest-тесты для API (Author, Book)
+**Спринт 4 — UI, тесты, релиз (3 задачи)**
+- HTML-страницы /authors, /books, /genres
+- pytest-тесты для API (Author, Book)
+- Проверить, что проект запускается с нуля по инструкции, и опубликовать
+  релиз v1.0.0 в разделе Releases на GitHub
 
 **Результат:** полноценный сайт с навигацией, зелёные тесты,
-готовый релиз v1.0.0.
+готовый релиз.

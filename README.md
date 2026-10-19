@@ -11,14 +11,14 @@ Book Tracker — веб-приложение для учёта книг в ли�
 - **Backend:** Python 3.11 + FastAPI
 - **ORM:** SQLAlchemy
 - **БД:** SQLite
-- **Frontend:** Jinja2 + Bootstrap 5
+- **Frontend:** Jinja2 + Bootstrap 5 Bootstrap CSS/JS хранятся локально в `static/bootstrap`,подключение через `StaticFiles` FastAPI.
 - **Тесты:** pytest + httpx
 - **VCS:** Git + GitHub
 
 ## Состав команды
 
-1. Бадамшина Ангелина, ЭУ-212, https://github.com/seyrangevorgyan/
-2. Геворгян Сейран, ЭУ-212, https://github.com/AnjelinaBadamshina/
+1. Бадамшина Ангелина, ЭУ-212, https://github.com/AnjelinaBadamshina/
+2. Геворгян Сейран, ЭУ-212, https://github.com/seyrangevorgyan/ 
 3. Сигитова Анастасия, ЭУ-212, https://github.com/sigitovaaa/
 
 ## Документация
