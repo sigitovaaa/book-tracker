@@ -11,7 +11,7 @@ Book Tracker — веб-приложение для учёта книг в ли�
 - **Backend:** Python 3.11 + FastAPI
 - **ORM:** SQLAlchemy
 - **БД:** SQLite
-- **Frontend:** Jinja2 + Bootstrap 5 (CDN)
+- **Frontend:** Jinja2 + Bootstrap 5
 - **Тесты:** pytest + httpx
 - **VCS:** Git + GitHub
 
