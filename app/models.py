@@ -21,6 +21,5 @@ class Book(Base):
     title = Column(String, nullable=False)
     year = Column(Integer)
     
-    # Внешние ключи (Foreign Keys) связывают книги с авторами и жанрами
     author_id = Column(Integer, ForeignKey("authors.id"))
     genre_id = Column(Integer, ForeignKey("genres.id"))
