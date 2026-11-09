@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать книгу{% endblock %}
+
+{% block content %}
+    <h1>Редактировать книгу</h1>
+
+    <div style="margin-bottom: 30px; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+        <form action="/books/{{ book.id }}/edit" method="post">
+            <p>
+                <label>Название:</label><br>
+                <input type="text" name="title" value="{{ book.title }}" required>
+            </p>
+            <p>
+                <label>Год:</label><br>
+                <input type="number" name="year" value="{{ book.year }}">
+            </p>
+            <p>
+                <label>Автор:</label><br>
+                <select name="author_id" required>
+                    {% for author in authors %}
+                        <!-- Если автор совпадает с текущим, ставим атрибут selected -->
+                        <option value="{{ author.id }}" {% if author.id == book.author_id %}selected{% endif %}>
+                            {{ author.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <label>Жанр:</label><br>
+                <select name="genre_id" required>
+                    {% for genre in genres %}
+                        <option value="{{ genre.id }}" {% if genre.id == book.genre_id %}selected{% endif %}>
+                            {{ genre.title }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </p>
+            <button type="submit" style="margin-top: 10px;">Сохранить изменения</button>
+            <a href="/books" style="margin-left: 10px;">Отмена</a>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать автора{% endblock %}
+
+{% block content %}
+    <h1>Редактировать автора</h1>
+
+    <div style="margin-bottom: 30px; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+        <form action="/authors/{{ author.id }}/edit" method="post">
+            <p>
+                <label>Имя автора:</label><br>
+                <input type="text" name="name" value="{{ author.name }}" required>
+            </p>
+            <p>
+                <label>Страна:</label><br>
+                <input type="text" name="country" value="{{ author.country }}">
+            </p>
+            <button type="submit" style="margin-top: 10px;">Сохранить изменения</button>
+            <a href="/authors" style="margin-left: 10px;">Отмена</a>
+        </form>
+    </div>
+{% endblock %}

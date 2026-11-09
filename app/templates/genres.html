@@ -1,32 +1,39 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Жанры - Book Tracker</title>
-</head>
-<body>
-    <h1>Управление жанрами</h1>
+{% extends "base.html" %}
 
-    <div>
-        <h3>Добавить новый жанр</h3>
+{% block title %}Жанры{% endblock %}
+
+{% block content %}
+    <h1>Жанры</h1>
+
+    <div style="margin-bottom: 30px; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+        <h3>Добавить жанр</h3>
         <form action="/genres/new" method="post">
             <input type="text" name="title" placeholder="Название жанра" required>
             <button type="submit">Добавить</button>
         </form>
     </div>
 
-    <h3>Список жанров</h3>
-    <ul>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Действия</th>
+        </tr>
         {% for genre in genres %}
-            <li>
-                {{ genre.title }} 
-                <form action="/genres/{{ genre.id }}/delete" method="post" style="display:inline;">
-                    <button type="submit">Удалить</button>
+        <tr>
+            <td>{{ genre.id }}</td>
+            <td>{{ genre.title }}</td>
+            <td>
+                <a href="/genres/{{ genre.id }}/edit" style="color: blue; margin-right: 10px;">Изменить</a>
+                <form action="/genres/{{ genre.id }}/delete" method="post" style="display: inline;">
+                    <button type="submit" class="btn-danger">Удалить</button>
                 </form>
-            </li>
+            </td>
+        </tr>
         {% else %}
-            <li>Жанров пока нет.</li>
+        <tr>
+            <td colspan="3">Жанров пока нет.</td>
+        </tr>
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </table>
+{% endblock %}
