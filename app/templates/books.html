@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Книги{% endblock %}
+
+{% block content %}
+    <h1>Книги</h1>
+
+    <div style="margin-bottom: 30px; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+        <h3>Добавить книгу</h3>
+        <form action="/books/new" method="post">
+            <input type="text" name="title" placeholder="Название книги" required>
+            <input type="number" name="year" placeholder="Год издания">
+            
+            <select name="author_id" required>
+                <option value="">Выберите автора...</option>
+                {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="genre_id" required>
+                <option value="">Выберите жанр...</option>
+                {% for genre in genres %}
+                    <option value="{{ genre.id }}">{{ genre.title }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Год</th>
+            <th>Автор</th>
+            <th>Жанр</th>
+            <th>Действия</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.year }}</td>
+            <!-- Вот тут мы выводим имена вместо ID! -->
+            <td>{{ authors_dict[book.author_id] }}</td>
+            <td>{{ genres_dict[book.genre_id] }}</td>
+            <td>
+                <a href="/books/{{ book.id }}/edit" style="color: blue; margin-right: 10px;">Изменить</a>
+                <form action="/books/{{ book.id }}/delete" method="post" style="display: inline;">
+                    <button type="submit" class="btn-danger">Удалить</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">Книг пока нет.</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

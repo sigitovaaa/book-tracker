@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Авторы{% endblock %}
+
+{% block content %}
+    <h1>Авторы</h1>
+
+    <div style="margin-bottom: 30px; background: #f9f9f9; padding: 15px; border-radius: 5px;">
+        <h3>Добавить автора</h3>
+        <form action="/authors/new" method="post">
+            <input type="text" name="name" placeholder="Имя автора" required>
+            <input type="text" name="country" placeholder="Страна">
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Страна</th>
+            <th>Действия</th>
+        </tr>
+        {% for author in authors %}
+        <tr>
+            <td>{{ author.id }}</td>
+            <td>{{ author.name }}</td>
+            <td>{{ author.country }}</td>
+            <td>
+                <a href="/authors/{{ author.id }}/edit" style="color: blue; margin-right: 10px;">Изменить</a>
+                <form action="/authors/{{ author.id }}/delete" method="post" style="display: inline;">
+                    <button type="submit" class="btn-danger">Удалить</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">Авторов пока нет.</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

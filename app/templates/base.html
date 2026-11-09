@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Book Tracker{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar { background-color: #333; padding: 15px; }
+        .navbar a { color: white; text-decoration: none; margin-right: 20px; font-size: 18px; }
+        .navbar a:hover { text-decoration: underline; }
+        .container { padding: 40px; }
+        table { border-collapse: collapse; width: 60%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btn-danger { color: red; cursor: pointer; background: none; border: none; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <!-- Меню навигации -->
+    <div class="navbar">
+        <a href="/authors">Авторы</a>
+        <a href="/books">Книги</a>
+        <a href="/genres">Жанры</a>
+        <a href="/docs" style="float: right;">API (Swagger)</a>
+    </div>
+
+    <!-- Сюда будут вставляться страницы -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
