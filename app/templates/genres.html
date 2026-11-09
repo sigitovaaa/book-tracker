@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Жанры - Book Tracker</title>
+</head>
+<body>
+    <h1>Управление жанрами</h1>
+
+    <div>
+        <h3>Добавить новый жанр</h3>
+        <form action="/genres/new" method="post">
+            <input type="text" name="title" placeholder="Название жанра" required>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <h3>Список жанров</h3>
+    <ul>
+        {% for genre in genres %}
+            <li>
+                {{ genre.title }} 
+                <form action="/genres/{{ genre.id }}/delete" method="post" style="display:inline;">
+                    <button type="submit">Удалить</button>
+                </form>
+            </li>
+        {% else %}
+            <li>Жанров пока нет.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
